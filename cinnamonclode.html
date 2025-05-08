@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceylon Cinnamon - The True Spice of Life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #8B4513;
+            --color-secondary: #D2B48C;
+            --color-accent: #CD853F;
+            --color-light: #F5F5DC;
+            --color-dark: #3E2723;
+            --color-green: #556B2F;
+            --transition-speed: 1000ms;
+        }
+        
+        html, body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--color-dark);
+            scroll-behavior: smooth;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background-color: var(--color-accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Fullpage Scroll Structure */
+        .section-container {
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+            transition: transform var(--transition-speed) cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        
+        .section {
+            height: 100vh;
+            width: 100vw;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+        }
+        
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Section backgrounds and colors */
+        .section-1 {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('/api/placeholder/1920/1080') center/cover no-repeat;
+            color: white;
+        }
+        
+        .section-2 {
+            background-color: var(--color-light);
+        }
+        
+        .section-3 {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url('/api/placeholder/1920/1080') center/cover no-repeat;
+            color: white;
+        }
+        
+        .section-4 {
+            background-color: var(--color-light);
+        }
+        
+        .section-5 {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url('/api/placeholder/1920/1080') center/cover no-repeat;
+            color: white;
+        }
+        
+        .section-6 {
+            background-color: var(--color-light);
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+        
+        .nav__dot {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            margin: 12px 0;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        
+        .nav__dot:hover {
+            transform: scale(1.3);
+        }
+        
+        .nav__dot.active {
+            background-color: var(--color-accent);
+            transform: scale(1.5);
+        }
+        
+        /* Scroll Arrow */
+        .scroll-arrow {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+            z-index: 10;
+        }
+        
+        .scroll-arrow svg {
+            fill: white;
+            width: 100%;
+            height: 100%;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* Section-specific Styles */
+        
+        /* Comparison Section */
+        .comparison {
+            display: flex;
+            margin-top: 2rem;
+            gap: 2rem;
+        }
+        
+        .comparison-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            flex: 1;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .comparison-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        
+        .comparison-card ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+        
+        .comparison-card li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Health Benefits Section */
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+            color: var(--color-accent);
+        }
+        
+        /* Culinary Uses Section */
+        .culinary-uses {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .recipe-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            overflow: hidden;
+            color: var(--color-dark);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .recipe-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .recipe-content {
+            padding: 1.5rem;
+        }
+        
+        .recipe-content h4 {
+            margin-bottom: 0.5rem;
+            color: var(--color-primary);
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Animation Elements */
+        .anim-element {
+            position: absolute;
+            z-index: 5;
+            pointer-events: none;
+            opacity: 0;
+            transform: scale(0);
+            transition: all var(--transition-speed) cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .cinnamon-stick {
+            width: 150px;
+            height: 60px;
+            background-color: var(--color-primary);
+            border-radius: 30px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+            transform-origin: center;
+        }
+        
+        .cinnamon-leaf {
+            width: 80px;
+            height: 120px;
+            background-color: var(--color-green);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            transform-origin: bottom center;
+        }
+        
+        .cinnamon-powder {
+            width: 120px;
+            height: 120px;
+            background-color: var(--color-secondary);
+            border-radius: 50%;
+            box-shadow: inset 0 0 20px rgba(139, 69, 19, 0.5);
+            transform-origin: center;
+        }
+        
+        .health-icon {
+            width: 100px;
+            height: 100px;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            transform-origin: center;
+        }
+        
+        .spice-jar {
+            width: 80px;
+            height: 120px;
+            background-color: var(--color-light);
+            border-radius: 10px 10px 20px 20px;
+            position: relative;
+            overflow: hidden;
+            transform-origin: center;
+            border: 3px solid var(--color-dark);
+        }
+        
+        .spice-jar::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background-color: var(--color-secondary);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .comparison {
+                flex-direction: column;
+            }
+            
+            .section {
+                padding: 0 5%;
+            }
+            
+            .benefits {
+                flex-direction: column;
+            }
+            
+            .nav {
+                right: 10px;
+            }
+            
+            .nav__dot {
+                width: 10px;
+                height: 10px;
+                margin: 10px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Dots -->
+    <div class="nav">
+        <div class="nav__dot active" data-index="0"></div>
+        <div class="nav__dot" data-index="1"></div>
+        <div class="nav__dot" data-index="2"></div>
+        <div class="nav__dot" data-index="3"></div>
+        <div class="nav__dot" data-index="4"></div>
+        <div class="nav__dot" data-index="5"></div>
+    </div>
+    
+    <!-- Full-page Sections Container -->
+    <div class="section-container">
+        <!-- Section 1: Hero/Introduction -->
+        <section class="section section-1" data-index="0">
+            <div class="section-content">
+                <h1>Ceylon Cinnamon</h1>
+                <h2>The True Spice of Life</h2>
+                <p>Discover the authentic taste and superior quality of pure Ceylon cinnamon, straight from the pristine landscapes of Sri Lanka.</p>
+                <a href="#" class="btn">Explore the Spice</a>
+            </div>
+            <div class="scroll-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                </svg>
+            </div>
+            <!-- Animation Element -->
+            <div class="anim-element cinnamon-stick" id="hero-stick"></div>
+        </section>
+        
+        <!-- Section 2: What is True Cinnamon? -->
+        <section class="section section-2" data-index="1">
+            <div class="section-content">
+                <h2>What is True Cinnamon?</h2>
+                <p>True Ceylon cinnamon (Cinnamomum verum) is a culinary and medicinal treasure that originates exclusively from Sri Lanka. Unlike its more common counterpart, Cassia cinnamon, Ceylon cinnamon is distinguished by its delicate taste, lighter color, and thin, papery bark.</p>
+                
+                <div class="comparison">
+                    <div class="comparison-card">
+                        <h3>Ceylon Cinnamon</h3>
+                        <img src="/api/placeholder/400/300" alt="Ceylon Cinnamon">
+                        <ul>
+                            <li>Light brown color</li>
+                            <li>Multiple thin layers that can be easily ground</li>
+                            <li>Sweet, delicate flavor with floral notes</li>
+                            <li>Low coumarin content (safe for regular consumption)</li>
+                            <li>Premium price reflecting its quality</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h3>Cassia Cinnamon</h3>
+                        <img src="/api/placeholder/400/300" alt="Cassia Cinnamon">
+                        <ul>
+                            <li>Dark reddish-brown color</li>
+                            <li>Single thick, hard layer</li>
+                            <li>Strong, spicy flavor with a bitter aftertaste</li>
+                            <li>High coumarin content (potentially harmful in large amounts)</li>
+                            <li>More affordable and widely available</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Animation Element -->
+            <div class="anim-element cinnamon-stick" id="comparison-stick"></div>
+        </section>
+        
+        <!-- Section 3: Origin & Uniqueness -->
+        <section class="section section-3" data-index="2">
+            <div class="section-content">
+                <h2>Origin & Uniqueness</h2>
+                <p>The story of Ceylon cinnamon is intrinsically tied to Sri Lanka's rich history and landscape. For centuries, this island nation has been the world's primary source of true cinnamon, with traditions passed down through generations of skilled craftsmen.</p>
+                <p>The cinnamon peelers of Sri Lanka, known as "Salagama," are masters of their craft, carefully harvesting and processing the inner bark of the cinnamon tree to create the perfect quills. This meticulous process involves:</p>
+                <ul>
+                    <li>Harvesting young shoots during the rainy season when the bark is most pliable</li>
+                    <li>Careful removal of the outer bark to expose the precious inner layer</li>
+                    <li>Allowing the bark to ferment for 24 hours before gently removing it</li>
+                    <li>Rolling multiple thin layers into the characteristic "quills"</li>
+                    <li>Natural drying in the sun, where the quills curl into their telltale shape</li>
+                </ul>
+                <p>This traditional process, combined with Sri Lanka's unique growing conditions, creates a spice that is truly irreplaceable in the culinary world.</p>
+            </div>
+            <!-- Animation Element -->
+            <div class="anim-element cinnamon-leaf" id="origin-leaf"></div>
+        </section>
+        
+        <!-- Section 4: Health Benefits -->
+        <section class="section section-4" data-index="3">
+            <div class="section-content">
+                <h2>Health Benefits</h2>
+                <p>Beyond its exquisite flavor, Ceylon cinnamon offers numerous health advantages, particularly when compared to Cassia varieties.</p>
+                
+                <div class="benefits">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">❤️</div>
+                        <h3>Heart Health</h3>
+                        <p>May help reduce blood pressure and cholesterol levels while improving circulation.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🧠</div>
+                        <h3>Brain Function</h3>
+                        <p>Contains powerful antioxidants that may protect against neurological disorders.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🍬</div>
+                        <h3>Blood Sugar Control</h3>
+                        <p>Helps regulate insulin response and improve glucose metabolism.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🔥</div>
+                        <h3>Anti-inflammatory</h3>
+                        <p>Reduces inflammation and fights bacterial and fungal infections.</p>
+                    </div>
+                </div>
+                
+                <p class="note">Unlike Cassia cinnamon, Ceylon cinnamon contains minimal coumarin (a compound that can be harmful to the liver in large amounts), making it safe for regular consumption.</p>
+            </div>
+            <!-- Animation Element -->
+            <div class="anim-element health-icon" id="health-icon">🔄</div>
+        </section>
+        
+        <!-- Section 5: Culinary Uses -->
+        <section class="section section-5" data-index="4">
+            <div class="section-content">
+                <h2>Culinary Uses</h2>
+                <p>With its sweet, delicate flavor profile, Ceylon cinnamon elevates both sweet and savory dishes around the world.</p>
+                
+                <div class="culinary-uses">
+                    <div class="recipe-card">
+                        <img src="/api/placeholder/400/300" alt="Cinnamon Tea">
+                        <div class="recipe-content">
+                            <h4>Ceylon Cinnamon Tea</h4>
+                            <p>A warming beverage that combines the subtle sweetness of Ceylon cinnamon with black tea and a touch of honey.</p>
+                        </div>
+                    </div>
+                    <div class="recipe-card">
+                        <img src="/api/placeholder/400/300" alt="Sri Lankan Curry">
+                        <div class="recipe-content">
+                            <h4>Sri Lankan Curry</h4>
+                            <p>Authentic Sri Lankan curries use Ceylon cinnamon as a key spice, creating depth and complexity without overpowering other flavors.</p>
+                        </div>
+                    </div>
+                    <div class="recipe-card">
+                        <img src="/api/placeholder/400/300" alt="Cinnamon Rolls">
+                        <div class="recipe-content">
+                            <h4>Classic Cinnamon Rolls</h4>
+                            <p>Traditional cinnamon rolls reach new heights when made with genuine Ceylon cinnamon's complex flavor profile.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Animation Element -->
+            <div class="anim-element spice-jar" id="spice-jar"></div>
+        </section>
+        
+        <!-- Section 6: Why Choose Ceylon / Call to Action -->
+        <section class="section section-6" data-index="5">
+            <div class="section-content">
+                <h2>Why Choose Ceylon Cinnamon?</h2>
+                <p>The choice between Ceylon and Cassia cinnamon goes beyond culinary preference—it's about flavor, health, and authenticity.</p>
+                <ul>
+                    <li>Superior flavor profile with delicate sweetness</li>
+                    <li>Lower coumarin levels for safe, regular consumption</li>
+                    <li>Support for traditional Sri Lankan cultivation practices</li>
+                    <li>Versatility in both sweet and savory applications</li>
+                </ul>
+                
+                <h3>How to Identify True Ceylon Cinnamon</h3>
+                <p>Look for these key characteristics when purchasing:</p>
+                <ul>
+                    <li>Light tan color (rather than reddish-brown)</li>
+                    <li>Multiple thin layers that are easily breakable</li>
+                    <li>Sweet, subtle aroma without strong spiciness</li>
+                    <li>Labeled as "Ceylon Cinnamon" or "Cinnamomum verum"</li>
+                </ul>
+                
+                <div class="contact-form">
+                    <h3>Get in Touch</h3>
+                    <p>Have questions about Ceylon cinnamon? Want to learn more? Send us a message!</p>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Animation Element -->
+            <div class="anim-element cinnamon-powder" id="powder-element"></div>
+        </section>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const sectionContainer = document.querySelector('.section-container');
+            const sections = document.querySelectorAll('.section');
+            const navDots = document.querySelectorAll('.nav__dot');
+            const scrollArrow = document.querySelector('.scroll-arrow');
+            
+            // Animation Elements
+            const heroStick = document.getElementById('hero-stick');
+            const comparisonStick = document.getElementById('comparison-stick');
+            const originLeaf = document.getElementById('origin-leaf');
+            const healthIcon = document.getElementById('health-icon');
+            const spiceJar = document.getElementById('spice-jar');
+            const powderElement = document.getElementById('powder-element');
+            
+            // State Variables
+            let currentIndex = 0;
+            let isAnimating = false;
+            let touchStartY = 0;
+            let touchEndY = 0;
+            
+            // Calculate total sections
+            const totalSections = sections.length;
+            
+            // Set initial positions of sections
+            function initSections() {
+                sections.forEach((section, index) => {
+                    section.style.transform = `translateY(${100 * (index - currentIndex)}%)`;
+                });
+            }
+            
+            // Initialize animation elements
+            function initAnimElements() {
+                // Position animation elements
+                heroStick.style.top = '70%';
+                heroStick.style.left = '20%';
+                
+                comparisonStick.style.top = '80%';
+                comparisonStick.style.left = '75%';
+                
+                originLeaf.style.top = '60%';
+                originLeaf.style.left = '60%';
+                
+                healthIcon.style.top = '70%';
+                healthIcon.style.left = '30%';
+                
+                spiceJar.style.top = '25%';
+                spiceJar.style.left = '75%';
+                
+                powderElement.style.top = '70%';
+                powderElement.style.left = '20%';
+            }
+            
+            // Update navigation dots
+            function updateNavDots() {
+                navDots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            // Scroll to specific section
+            function scrollToSection(index) {
+                if (isAnimating || index === currentIndex || index < 0 || index >= totalSections) return;
+                
+                isAnimating = true;
+                
+                // Animate section transition
+                const direction = index > currentIndex ? 1 : -1;
+                
+                // Show animation element from current section
+                showAnimationElement(currentIndex, direction);
+                
+                // Move sections
+                sections.forEach((section, i) => {
+                    section.style.transform = `translateY(${100 * (i - index)}%)`;
+                });
+                
+                // Update current index
+                currentIndex = index;
+                
+                // Update navigation dots
+                updateNavDots();
+                
+                // Reset animation state after transition completes
+                setTimeout(() => {
+                    isAnimating = false;
+                    
+                    // Hide animation element
+                    hideAnimationElements();
+                }, 1000);
+            }
+            
+            // Show appropriate animation element based on current section
+            function showAnimationElement(sectionIndex, direction) {
+                // Reset all animation elements
+                hideAnimationElements();
+                
+                // Determine which element to show based on current section and direction
+                let element;
+                let targetPosition = {};
+                
+                switch(sectionIndex) {
+                    case 0: // Hero section
+                        element = heroStick;
+                        if (direction > 0) { // Moving down to section 2
+                            targetPosition = { top: '30%', left: '50%', scale: 1.5, rotate: '45deg' };
+                        }
+                        break;
+                    case 1: // What is True Cinnamon
+                        element = comparisonStick;
+                        if (direction > 0) { // Moving down to section 3
+                            targetPosition = { top: '40%', left: '50%', scale: 1.5, rotate: '-30deg' };
+                        } else { // Moving up to section 1
+                            targetPosition = { top: '60%', left: '40%', scale: 1.2, rotate: '20deg' };
+                        }
+                        break;
+                    case 2: // Origin & Uniqueness
+                        element = originLeaf;
+                        if (direction > 0) { // Moving down to section 4
+                            targetPosition = { top: '50%', left: '50%', scale: 1.5, rotate: '15deg' };
+                        } else { // Moving up to section 2
+                            targetPosition = { top: '40%', left: '60%', scale: 1.2, rotate: '-10deg' };
+                        }
+                        break;
+                    case 3: // Health Benefits
+                        element = healthIcon;
+                        if (direction > 0) { // Moving down to section 5
+                            targetPosition = { top: '40%', left: '50%', scale: 1.5, rotate: '0deg' };
+                        } else { // Moving up to section 3
+                            targetPosition = { top: '50%', left: '40%', scale: 1.2, rotate: '0deg' };
+                        }
+                        break;
+                    case 4: // Culinary Uses
+                        element = spiceJar;
+                        if (direction > 0) { // Moving down to section 6
+                            targetPosition = { top: '30%', left: '50%', scale: 1.5, rotate: '10deg' };
+                        } else { // Moving up to section 4
+                            targetPosition = { top: '60%', left: '30%', scale: 1.2, rotate: '-10deg' };
+                        }
+                        break;
+                    case 5: // Why Choose Ceylon
+                        element = powderElement;
+                        if (direction < 0) { // Moving up to section 5
+                            targetPosition = { top: '50%', left: '60%', scale: 1.2, rotate: '0deg' };
+                        }
+                        break;
+                }
+                
+                // If we have an element to animate
+                if (element && targetPosition) {
+                    // Make element visible
+                    element.style.opacity = '1';
+                    element.style.transform = `translate(-50%, -50%) scale(1) rotate(0deg)`;
+                    
+                    // Animate to target position
+                    setTimeout(() => {
+                        element.style.top = targetPosition.top;
+                        element.style.left = targetPosition.left;
+                        element.style.transform = `translate(-50%, -50%) scale(${targetPosition.scale || 1}) rotate(${targetPosition.rotate || '0deg'})`;
+                    }, 100);
+                }
+            }
+            
+            // Hide all animation elements
+            function hideAnimationElements() {
+                const elements = document.querySelectorAll('.anim-element');
+                elements.forEach(element => {
+                    element.style.opacity = '0';
+                    element.style.transform = 'translate(-50%, -50%) scale(0)';
+                });
+            }
+            
+            // Event Listeners
+            
+            // Mouse wheel event for scrolling
+            window.addEventListener('wheel', function(e) {
+                e.preventDefault();
+                
+                if (isAnimating) return;
+                
+                const direction = e.deltaY > 0 ? 1 : -1;
+                const nextIndex = currentIndex + direction;
+                
+                if (nextIndex >= 0 && nextIndex < totalSections) {
+                    scrollToSection(nextIndex);
+                }
+            }, { passive: false });
+            
+            // Navigation dots click event
+            navDots.forEach((dot) => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    scrollToSection(index);
+                });
+            });
+            
+            // Scroll arrow click event
+            scrollArrow.addEventListener('click', () => {
+                scrollToSection(currentIndex + 1);
+            });
+            
+            // Touch events for mobile
+            document.addEventListener('touchstart', function(e) {
+                touchStartY = e.touches[0].clientY;
+            }, { passive: true });
+            
+            document.addEventListener('touchmove', function(e) {
+                if (isAnimating) return;
+                touchEndY = e.touches[0].clientY;
+            }, { passive: true });
+            
+            document.addEventListener('touchend', function() {
+                if (isAnimating) return;
+                
+                const diff = touchStartY - touchEndY;
+                
+                // Only trigger if swipe is significant
+                if (Math.abs(diff) > 50) {
+                    const direction = diff > 0 ? 1 : -1;
+                    const nextIndex = currentIndex + direction;
+                    
+                    if (nextIndex >= 0 && nextIndex < totalSections) {
+                        scrollToSection(nextIndex);
+                    }
+                }
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (isAnimating) return;
+                
+                if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+                    e.preventDefault();
+                    const nextIndex = currentIndex + 1;
+                    if (nextIndex < totalSections) {
+                        scrollToSection(nextIndex);
+                    }
+                } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+                    e.preventDefault();
+                    const prevIndex = currentIndex - 1;
+                    if (prevIndex >= 0) {
+                        scrollToSection(prevIndex);
+                    }
+                }
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+                    
+                    // Here you would typically send the data to a server
+                    console.log('Form submitted:', { name, email, message });
+                    
+                    // Show success message
+                    alert('Thank you for your message! We will get back to you soon.');
+                    
+                    // Reset form
+                    contactForm.reset();
+                });
+            }
+            
+            // Initialize the website
+            initSections();
+            initAnimElements();
+            updateNavDots();
+            
+            // For demonstration purposes, add some classes to make certain elements visible initially
+            setTimeout(() => {
+                heroStick.style.opacity = '0.5';
+                heroStick.style.transform = 'translate(-50%, -50%) scale(0.8) rotate(10deg)';
+            }, 1000);
+            
+            // Handle browser resize
+            window.addEventListener('resize', function() {
+                // Recalculate any size-dependent variables if needed
+                // This ensures responsive behavior
+            });
+            
+            // Disable default scrolling
+            document.body.style.overflow = 'hidden';
+            
+            // Enable accessibility navigation
+            // This provides an alternative for keyboard users and screen readers
+            document.querySelectorAll('.section').forEach(section => {
+                section.setAttribute('tabindex', '0');
+                section.setAttribute('role', 'region');
+                section.setAttribute('aria-label', `Section ${parseInt(section.getAttribute('data-index')) + 1}`);
+            });
+        });
+    </script>
+</body>
+</html>
