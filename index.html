@@ -928,6 +928,102 @@
             background-color: #f9f9f9;
             border-radius: 0 0 12px 12px;
         }
+        
+        /* ===== Rock Mode Music Player ===== */
+        .music-player {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .music-control {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .music-control:hover {
+            transform: scale(1.2);
+        }
+        
+        .music-info {
+            font-size: 0.8rem;
+            color: white;
+            max-width: 150px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        /* ===== Full Width Rhythm Bars ===== */
+        .rhythm-bars {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            display: none;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0 10px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            z-index: 998;
+            box-sizing: border-box;
+        }
+        
+        .rhythm-bar {
+            flex: 1;
+            min-width: 4px;
+            max-width: 8px;
+            background: linear-gradient(to top, var(--accent1), var(--accent2));
+            border-radius: 5px 5px 0 0;
+            animation: rhythm-animation 1s infinite alternate;
+            transform-origin: bottom;
+            margin: 0 1px;
+        }
+        
+        @keyframes rhythm-animation {
+            0% {
+                transform: scaleY(0.2);
+            }
+            100% {
+                transform: scaleY(1);
+            }
+        }
+        
+        /* Create different animation delays for each bar */
+        .rhythm-bar:nth-child(1) { animation-delay: 0.1s; height: 20px; }
+        .rhythm-bar:nth-child(2) { animation-delay: 0.3s; height: 40px; }
+        .rhythm-bar:nth-child(3) { animation-delay: 0.2s; height: 30px; }
+        .rhythm-bar:nth-child(4) { animation-delay: 0.4s; height: 50px; }
+        .rhythm-bar:nth-child(5) { animation-delay: 0.1s; height: 25px; }
+        .rhythm-bar:nth-child(6) { animation-delay: 0.3s; height: 45px; }
+        .rhythm-bar:nth-child(7) { animation-delay: 0.2s; height: 35px; }
+        .rhythm-bar:nth-child(8) { animation-delay: 0.4s; height: 55px; }
+        .rhythm-bar:nth-child(9) { animation-delay: 0.1s; height: 15px; }
+        .rhythm-bar:nth-child(10) { animation-delay: 0.3s; height: 40px; }
+        .rhythm-bar:nth-child(11) { animation-delay: 0.2s; height: 30px; }
+        .rhythm-bar:nth-child(12) { animation-delay: 0.4s; height: 50px; }
+        .rhythm-bar:nth-child(13) { animation-delay: 0.1s; height: 20px; }
+        .rhythm-bar:nth-child(14) { animation-delay: 0.3s; height: 45px; }
+        .rhythm-bar:nth-child(15) { animation-delay: 0.2s; height: 35px; }
+        .rhythm-bar:nth-child(16) { animation-delay: 0.4s; height: 55px; }
+        .rhythm-bar:nth-child(17) { animation-delay: 0.1s; height: 25px; }
+        .rhythm-bar:nth-child(18) { animation-delay: 0.3s; height: 40px; }
+        .rhythm-bar:nth-child(19) { animation-delay: 0.2s; height: 30px; }
+        .rhythm-bar:nth-child(20) { animation-delay: 0.4s; height: 50px; }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -941,6 +1037,39 @@
     <div class="mode-switcher">
         <button id="normal-mode" class="mode-btn active" title="Normal Mode"><i class="fas fa-moon"></i></button>
         <button id="rock-mode" class="mode-btn" title="Rock Mode"><i class="fas fa-guitar"></i></button>
+    </div>
+    
+    <!-- Music Player (hidden by default) -->
+    <div class="music-player">
+        <button class="music-control" id="play-pause"><i class="fas fa-play"></i></button>
+        <div class="music-info">Rock Mode Activated!</div>
+        <audio id="background-music" loop>
+            <source src="mysong.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    
+    <!-- Full Width Rhythm Bars (hidden by default) -->
+    <div class="rhythm-bars">
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
+        <div class="rhythm-bar"></div>
     </div>
 
     <div class="cursor-follower"></div>
@@ -1347,6 +1476,10 @@
         const rockModeBtn = document.getElementById('rock-mode');
         const discoBall = document.querySelector('.disco-ball');
         const discoLight = document.querySelector('.disco-light');
+        const musicPlayer = document.querySelector('.music-player');
+        const playPauseBtn = document.getElementById('play-pause');
+        const backgroundMusic = document.getElementById('background-music');
+        const rhythmBars = document.querySelector('.rhythm-bars');
         
         // Set initial mode
         document.documentElement.classList.add('normal-mode');
@@ -1358,6 +1491,12 @@
             rockModeBtn.classList.remove('active');
             discoBall.style.display = 'none';
             discoLight.style.display = 'none';
+            musicPlayer.style.display = 'none';
+            rhythmBars.style.display = 'none';
+            
+            // Pause music when switching to normal mode
+            backgroundMusic.pause();
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
         });
         
         rockModeBtn.addEventListener('click', () => {
@@ -1367,12 +1506,32 @@
             normalModeBtn.classList.remove('active');
             discoBall.style.display = 'block';
             discoLight.style.display = 'block';
+            musicPlayer.style.display = 'flex';
+            rhythmBars.style.display = 'flex';
+            
+            // Play music when switching to rock mode
+            backgroundMusic.play().catch(e => {
+                // If autoplay is blocked, show play button
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            });
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
             
             // Add disco light effect that follows mouse
             document.addEventListener('mousemove', (e) => {
                 discoLight.style.setProperty('--x', e.clientX + 'px');
                 discoLight.style.setProperty('--y', e.clientY + 'px');
             });
+        });
+
+        // Music player controls
+        playPauseBtn.addEventListener('click', () => {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play();
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                backgroundMusic.pause();
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
         });
 
         // ===== Cursor Follower =====
