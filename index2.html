@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineer Portfolio - New Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; } /* Added font stack */
+    </style>
+</head>
+<body class="bg-gray-900 font-sans"> <!-- Added font-sans -->
+    <div id="hero-section" class="min-h-screen flex flex-col justify-center items-center text-white relative overflow-hidden">
+        <div id="threejs-canvas-container" class="absolute inset-0 z-0"></div>
+        <div class="z-10 text-center p-8">
+            <h1 id="hero-name" class="text-4xl sm:text-5xl font-bold mb-4">Chamathka Prasad</h1> <!-- Responsive H1 -->
+            <h2 id="hero-title" class="text-2xl sm:text-3xl mb-6">Software Engineer</h2> <!-- Responsive H2 -->
+            <p id="hero-bio" class="max-w-2xl mx-auto mb-8 text-lg">
+                I build scalable, high-performance applications with modern technologies. Specializing in full-stack development, cloud architecture, and system design.
+            </p>
+            <div id="hero-contact" class="mb-8 space-y-2">
+                <p><a href="mailto:chamathkaprasad123@gmail.com" class="hover:text-blue-400 transition-colors">chamathkaprasad123@gmail.com</a></p>
+                <p><a href="tel:+94788677359" class="hover:text-blue-400 transition-colors">+94 788677359</a></p>
+            </div>
+            <div id="hero-social" class="flex justify-center space-x-6">
+                <a href="https://www.linkedin.com/in/chamathka-prasad-410433286/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors">LinkedIn</a>
+                <a href="https://www.facebook.com/chamathka.prasad" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors">Facebook</a>
+                <a href="https://github.com/chamathka-prasad" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors">GitHub</a>
+            </div>
+        </div>
+    </div>
+    <section id="about-me-section" class="py-12 px-6 bg-gray-800 text-white text-center">
+        <h2 class="text-3xl font-bold mb-8 text-yellow-400">About Me</h2>
+        <div class="max-w-2xl mx-auto">
+            <p class='text-lg text-gray-300 leading-relaxed'>I am a passionate software engineer dedicated to crafting elegant and efficient solutions to complex problems. With a strong foundation in modern web technologies and a keen eye for detail, I thrive on turning innovative ideas into reality. I believe in continuous learning and collaboration to build software that not only functions flawlessly but also provides an exceptional user experience. My goal is to leverage my skills to contribute to impactful projects and drive technological advancement.</p>
+        </div>
+    </section>
+    <div id="experience-section" class="bg-gray-800 text-white py-12 px-6">
+        <h2 class="text-3xl font-bold mb-12 text-center text-blue-400">Work Experience</h2>
+        <div class="max-w-4xl mx-auto">
+            <!-- Job 1: Freelancer -->
+            <div class="experience-entry mb-8 p-6 bg-gray-700 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-blue-300">Software Engineer</h3>
+                <p class="text-lg text-gray-300">Freelancer</p>
+                <p class="text-sm text-gray-400 mb-3">2024 - Present</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li>Developed a Special Graphics Classes Video Platform based on Spring Boot that included a PayPal payment gateway.</li>
+                    <li>Developed 100 international websites.</li>
+                    <li>Developed a PHP-based POS system.</li>
+                    <li>Developed an e-commerce app for Sri Lankan spices.</li>
+                    <li>Developed a platform for submitting order quotations, selection processes. Also allowed admins and designers to chat with manufacturers and maintain their order status.</li>
+                    <li>Developing a React Native-based Smart POS App.</li>
+                </ul>
+            </div>
+
+            <!-- Job 2: JadeTimes Media LLC - External -->
+            <div class="experience-entry mb-8 p-6 bg-gray-700 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-blue-300">External Web Developer</h3>
+                <p class="text-lg text-gray-300">JadeTimes Media LLC</p>
+                <p class="text-sm text-gray-400 mb-3">January 2025 - Present</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li>Maintaining the user management system.</li>
+                </ul>
+            </div>
+
+            <!-- Job 3: JadeTimes Media LLC - Intern -->
+            <div class="experience-entry mb-8 p-6 bg-gray-700 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-blue-300">Intern Web Developer</h3>
+                <p class="text-lg text-gray-300">JadeTimes Media LLC.</p>
+                <p class="text-sm text-gray-400 mb-3">June 2024 - January 2025</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li>Designed a user management system based on the PHP language.</li>
+                    <li>Designed a React-based news website.</li>
+                    <li>Experienced in shared hosting and domain configuration.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="education-section" class="bg-gray-800 text-white py-12 px-6">
+        <h2 class="text-3xl font-bold mb-12 text-center text-green-400">Education</h2>
+        <div class="max-w-4xl mx-auto">
+            <!-- Education Entry 1 -->
+            <div class="education-entry mb-8 p-6 bg-gray-700 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-green-300">BEng in Software Engineering and MPhil in Software Engineering</h3>
+                <p class="text-lg text-gray-300">IIC University of Technology Cambodia / Java Institute For Advanced Technology</p>
+                <p class="text-sm text-gray-400 mb-3">2023 - Present</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-300">
+                    <li>Enterprise-level Application Development</li>
+                    <li>Cross-platform and E-commerce App Development</li>
+                    <li>Android App Development</li>
+                    <li>Project Management</li>
+                </ul>
+            </div>
+
+            <!-- Education Entry 2 -->
+            <div class="education-entry mb-8 p-6 bg-gray-700 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-green-300">Ordinary Level and Advanced Level</h3>
+                <p class="text-lg text-gray-300">Ananda College Colombo 10</p>
+                <p class="text-sm text-gray-400 mb-3">2012 - 2021</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-300">
+                    <li>Passed Ordinary Level with 6 A's and 3 B's.</li>
+                    <li>Studied Biological Science.</li>
+                    <li>Passed Advanced Level with 2 B's and a C, and was selected to the University of Peradeniya.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="projects-section" class="bg-gray-800 text-white py-12 px-6">
+        <h2 class="text-3xl font-bold mb-12 text-center text-purple-400">Featured Projects</h2>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="project-card-item bg-gray-700 rounded-lg shadow-md overflow-hidden">
+                <img src="jade.png" alt="User Management Application" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">User Management Application</h3>
+                    <p class="text-gray-300 mb-4 text-sm">Manage users, leaves, and attendance while tracking daily progress within thecompany.</p>
+                    <div class="mb-4">
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">PHP</span>
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">HTML</span>
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">JS</span>
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">CSS</span>
+                    </div>
+                    <a href="https://ums.jadetimes.com/" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded text-sm">View Project</a>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card-item bg-gray-700 rounded-lg shadow-md overflow-hidden">
+                <img src="specialClass.png" alt="Special Graphics LMS" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Special Graphics LMS</h3>
+                    <p class="text-gray-300 mb-4 text-sm">The LMS allows course purchases, structured learning, assignments, MCQs, and admin tracking of progress and submissions in real-time.</p>
+                    <div class="mb-4">
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">Spring Boot</span>
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">HTML</span>
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">JS</span>
+                    </div>
+                    <a href="https://class.specialgraphics.us/" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded text-sm">View Project</a>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-card-item bg-gray-700 rounded-lg shadow-md overflow-hidden">
+                <img src="100.png" alt="100-international web application" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">100-international web application</h3>
+                    <p class="text-gray-300 mb-4 text-sm">View information about the company and sell their products.</p>
+                    <div class="mb-4">
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">CSS</span>
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">HTML</span>
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">JS</span>
+                    </div>
+                    <a href="https://100-international.com/" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded text-sm">View Project</a>
+                </div>
+            </div>
+            <!-- Project 4 -->
+            <div class="project-card-item bg-gray-700 rounded-lg shadow-md overflow-hidden">
+                <img src="radSecurity.png" alt="Manufacturer And Quotation,Order Management Application" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Quotation & Order Management</h3>
+                    <p class="text-gray-300 mb-4 text-sm">Manage Order, MAnufacturer, Users, Quotation Submission & Selection, Chat With Manufacturer.</p>
+                    <div class="mb-4">
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">PHP</span>
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">HTML</span>
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">JS</span>
+                    </div>
+                    <a href="https://ceylonspicyjourneys.com/" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded text-sm">View Project</a>
+                </div>
+            </div>
+            <!-- Project 5 -->
+            <div class="project-card-item bg-gray-700 rounded-lg shadow-md overflow-hidden">
+                <img src="spices.png" alt="E-commerce Spices Selling Web Application" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">E-commerce Spices Selling App</h3>
+                    <p class="text-gray-300 mb-4 text-sm">Selling Spices And Other Items.</p>
+                    <div class="mb-4">
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">PHP</span>
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">HTML</span>
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">JS</span>
+                    </div>
+                    <a href="https://spiceceylonpro.com/" target="_blank" rel="noopener noreferrer" class="inline-block bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded text-sm">View Project</a>
+                </div>
+            </div>
+            <!-- Project 6 -->
+            <div class="project-card-item bg-gray-700 rounded-lg shadow-md overflow-hidden">
+                <img src="livendraPos.png" alt="Supermarket System" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Supermarket System</h3>
+                    <p class="text-gray-300 mb-4 text-sm">Manage Bill,Manage Product,Manage Invoices,GRN.</p>
+                    <div class="mb-4">
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">PHP</span>
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">HTML</span>
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">JS</span>
+                    </div>
+                    <a href="#" class="inline-block bg-gray-500 text-white font-semibold py-2 px-4 rounded text-sm cursor-not-allowed" title="Desktop App">Desktop App</a>
+                </div>
+            </div>
+            <!-- Project 7 -->
+            <div class="project-card-item bg-gray-700 rounded-lg shadow-md overflow-hidden">
+                <img src="ReactApp.png" alt="Smart Billing App" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Smart Billing App</h3>
+                    <p class="text-gray-300 mb-4 text-sm">Register Products , Print Barcodes , Scan Barcodes , Print Bill.</p>
+                    <div class="mb-4">
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">React Native</span>
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">Expo</span>
+                        <span class="bg-gray-600 text-purple-300 px-2 py-1 rounded-full text-xs mr-2 mb-2 inline-block">SQL Lite</span>
+                    </div>
+                    <a href="#" class="inline-block bg-yellow-500 text-white font-semibold py-2 px-4 rounded text-sm cursor-not-allowed" title="Ongoing">Ongoing</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="skills-section" class="bg-gray-800 text-white py-12 px-6">
+        <h2 class="text-3xl font-bold mb-12 text-center text-teal-400">Technical Skills</h2>
+        <div class="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            <!-- Java -->
+            <div class="skill-item-card bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                <i class="fab fa-java text-4xl text-teal-300 mb-3"></i>
+                <h3 class="text-lg font-semibold text-teal-300 mb-1">Java</h3>
+                <p class="text-sm text-gray-400">Master</p>
+            </div>
+            <!-- JS -->
+            <div class="skill-item-card bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                <i class="fab fa-js-square text-4xl text-teal-300 mb-3"></i>
+                <h3 class="text-lg font-semibold text-teal-300 mb-1">JS</h3>
+                <p class="text-sm text-gray-400">Master</p>
+            </div>
+            <!-- React Native -->
+            <div class="skill-item-card bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                <i class="fab fa-react text-4xl text-teal-300 mb-3"></i>
+                <h3 class="text-lg font-semibold text-teal-300 mb-1">React Native</h3>
+                <p class="text-sm text-gray-400">Advanced</p>
+            </div>
+            <!-- React -->
+            <div class="skill-item-card bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                <i class="fab fa-react text-4xl text-teal-300 mb-3"></i>
+                <h3 class="text-lg font-semibold text-teal-300 mb-1">React</h3>
+                <p class="text-sm text-gray-400">Advanced</p>
+            </div>
+            <!-- Android -->
+            <div class="skill-item-card bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                <i class="fab fa-android text-4xl text-teal-300 mb-3"></i>
+                <h3 class="text-lg font-semibold text-teal-300 mb-1">Android</h3>
+                <p class="text-sm text-gray-400">Advanced</p>
+            </div>
+            <!-- HTML -->
+            <div class="skill-item-card bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                <i class="fab fa-html5 text-4xl text-teal-300 mb-3"></i>
+                <h3 class="text-lg font-semibold text-teal-300 mb-1">HTML</h3>
+                <p class="text-sm text-gray-400">Advanced</p>
+            </div>
+            <!-- CSS -->
+            <div class="skill-item-card bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                <i class="fab fa-css3-alt text-4xl text-teal-300 mb-3"></i>
+                <h3 class="text-lg font-semibold text-teal-300 mb-1">CSS</h3>
+                <p class="text-sm text-gray-400">Advanced</p>
+            </div>
+            <!-- GitHub -->
+            <div class="skill-item-card bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                <i class="fab fa-github text-4xl text-teal-300 mb-3"></i>
+                <h3 class="text-lg font-semibold text-teal-300 mb-1">GitHub</h3>
+                <p class="text-sm text-gray-400">Advanced</p>
+            </div>
+            <!-- VPS Management -->
+            <div class="skill-item-card bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                <i class="fas fa-server text-4xl text-teal-300 mb-3"></i>
+                <h3 class="text-lg font-semibold text-teal-300 mb-1">VPS Management</h3>
+                <p class="text-sm text-gray-400">Advanced</p>
+            </div>
+            <!-- SQL -->
+            <div class="skill-item-card bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                <i class="fas fa-database text-4xl text-teal-300 mb-3"></i>
+                <h3 class="text-lg font-semibold text-teal-300 mb-1">SQL</h3>
+                <p class="text-sm text-gray-400">Advanced</p>
+            </div>
+            <!-- Firebase -->
+            <div class="skill-item-card bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                <i class="fas fa-fire text-4xl text-teal-300 mb-3"></i>
+                <h3 class="text-lg font-semibold text-teal-300 mb-1">Firebase</h3>
+                <p class="text-sm text-gray-400">Advanced</p>
+            </div>
+            <!-- AI Prompt -->
+            <div class="skill-item-card bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                <i class="fas fa-robot text-4xl text-teal-300 mb-3"></i>
+                <h3 class="text-lg font-semibold text-teal-300 mb-1">AI Prompt</h3>
+                <p class="text-sm text-gray-400">Advanced</p>
+            </div>
+        </div>
+    </div>
+    <div id="contact-section" class="bg-gray-800 text-white py-12 px-6">
+        <h2 class="text-3xl font-bold mb-12 text-center text-cyan-400">Get In Touch</h2> <!-- Padding was py-12 px-6, prompt suggested py-16, sticking to py-12 for consistency -->
+        <div class="max-w-lg mx-auto">
+            <form action="#" method="POST">
+                <div class="mb-6">
+                    <label for="name" class="block text-gray-400 text-sm font-semibold mb-2">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name"
+                           class="w-full p-3 bg-gray-700 text-gray-200 border border-gray-600 rounded-md focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition duration-300">
+                </div>
+                <div class="mb-6">
+                    <label for="email" class="block text-gray-400 text-sm font-semibold mb-2">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email"
+                           class="w-full p-3 bg-gray-700 text-gray-200 border border-gray-600 rounded-md focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition duration-300">
+                </div>
+                <div class="mb-6">
+                    <label for="message" class="block text-gray-400 text-sm font-semibold mb-2">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message"
+                              class="w-full p-3 bg-gray-700 text-gray-200 border border-gray-600 rounded-md focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition duration-300"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit"
+                            class="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-3 px-6 rounded-md transition duration-300">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="footer-section" class="bg-gray-900 text-gray-400 py-8 px-6 text-center">
+        <div class="flex justify-center space-x-6 mb-4">
+            <a href="https://github.com/chamathka-prasad" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition duration-300">
+                <i class="fab fa-github fa-lg"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/chamathka-prasad-410433286/" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition duration-300">
+                <i class="fab fa-linkedin fa-lg"></i>
+            </a>
+            <a href="#" class="hover:text-cyan-400 transition duration-300">
+                <i class="fab fa-twitter fa-lg"></i>
+            </a>
+            <a href="mailto:chamathkaprasad123@gmail.com" class="hover:text-cyan-400 transition duration-300">
+                <i class="fas fa-envelope fa-lg"></i>
+            </a>
+        </div>
+        <p class="text-sm">&copy; 2025 Chamathka Prasad. All rights reserved.</p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+        // GSAP Animations
+        gsap.from("#hero-name", { opacity: 0, y: 50, duration: 1, delay: 0.5 });
+        gsap.from("#hero-title", { opacity: 0, y: 50, duration: 1, delay: 0.8 });
+        gsap.from("#hero-bio", { opacity: 0, y: 50, duration: 1, delay: 1.1 });
+        gsap.from("#hero-contact", { opacity: 0, y: 50, duration: 1, delay: 1.4 });
+        gsap.from("#hero-social", { opacity: 0, y: 50, duration: 1, delay: 1.7 });
+
+        // Scroll-triggered Animations for Sections and their items
+        const sections = [
+            { id: "#about-me-section", itemsClass: "#about-me-section p" }, // Special case for about-me paragraph
+            { id: "#experience-section", itemsClass: ".experience-entry" },
+            { id: "#education-section", itemsClass: ".education-entry" },
+            { id: "#projects-section", itemsClass: ".project-card-item" },
+            { id: "#skills-section", itemsClass: ".skill-item-card" }
+        ];
+
+        sections.forEach(section => {
+            // Section Animation (excluding the specific paragraph animation for about-me which is handled below)
+            if (section.id !== "#about-me-section" || section.itemsClass !== "#about-me-section p") { // Avoid double animation for about-me section itself if we animate p separately
+                 gsap.from(section.id, {
+                    scrollTrigger: { trigger: section.id, start: "top 80%", toggleActions: "play none none none" },
+                    opacity: 0,
+                    y: 50,
+                    duration: 0.8
+                });
+            }
+
+
+            // Staggered Item Animation or single item animation
+            if (section.id === "#about-me-section" && section.itemsClass === "#about-me-section p") {
+                 gsap.from(section.itemsClass, { // Animating the paragraph
+                    scrollTrigger: { trigger: section.id, start: "top 70%", toggleActions: "play none none none" },
+                    opacity: 0,
+                    y: 30,
+                    duration: 0.5,
+                    delay: 0.3 // Delay for the paragraph after section might have appeared
+                });
+                // Animate the #about-me-section itself (its background and title)
+                gsap.from("#about-me-section", {
+                    scrollTrigger: { trigger: "#about-me-section", start: "top 80%", toggleActions: "play none none none" },
+                    opacity: 0,
+                    y: 50,
+                    duration: 0.8
+                });
+            } else {
+                gsap.from(section.itemsClass, {
+                    scrollTrigger: { trigger: section.id, start: "top 70%", toggleActions: "play none none none" },
+                    opacity: 0,
+                    y: 30,
+                    duration: 0.5,
+                    stagger: 0.2
+                });
+            }
+        });
+
+        // Three.js Scene
+            // Section Animation
+            gsap.from(section.id, {
+                scrollTrigger: { trigger: section.id, start: "top 80%", toggleActions: "play none none none" },
+                opacity: 0,
+                y: 50,
+                duration: 0.8
+            });
+
+            // Staggered Item Animation
+            gsap.from(section.itemsClass, {
+                scrollTrigger: { trigger: section.id, start: "top 70%", toggleActions: "play none none none" },
+                opacity: 0,
+                y: 30,
+                duration: 0.5,
+                stagger: 0.2
+            });
+        });
+
+        // Three.js Scene
+        const container = document.getElementById('threejs-canvas-container');
+        let scene, camera, renderer, cube;
+
+        function initThree() {
+            scene = new THREE.Scene();
+
+            camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.z = 5;
+
+            renderer = new THREE.WebGLRenderer({ alpha: true }); // alpha: true for transparent background
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(renderer.domElement);
+
+            const geometry = new THREE.BoxGeometry();
+            // Use a MeshStandardMaterial for better appearance with lights
+            const material = new THREE.MeshStandardMaterial({ color: 0x00ff9d, metalness: 0.5, roughness: 0.5 });
+            cube = new THREE.Mesh(geometry, material);
+            scene.add(cube);
+            
+            // Add some lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // soft white light
+            scene.add(ambientLight);
+            
+            const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+            pointLight.position.set(5, 5, 5); // Position the light
+            scene.add(pointLight);
+
+
+            animateThree();
+        }
+
+        function animateThree() {
+            requestAnimationFrame(animateThree);
+
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+
+            renderer.render(scene, camera);
+        }
+
+        function onWindowResize() {
+            if (camera && renderer) {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            }
+        }
+        
+        window.addEventListener('resize', onWindowResize, false);
+
+        initThree();
+    </script>
+</body>
+</html>
